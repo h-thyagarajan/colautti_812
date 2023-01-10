@@ -24,14 +24,23 @@ b1 <- boxplot(Limb.Volume~Species, data=measurements)
 b2 <- ggplot(measurements, aes(x=Species, y=Limb.Volume)) + geom_boxplot() + theme_pub() + theme(axis.text.x = element_text(angle = 25, vjust = 0.4, hjust=0.5))
 
 #Create a multi-panel plot showing frequency histograms for each species. 
-#Note that this may require you to add code to you R markdown file to change the 
-#data from the wide to long format.
+require(gridExtra)
+hist.m <- ggplot(measurements %>% filter(Species == "Drosophila melanogaster"), 
+                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila melanogaster") + xlab("") + ylab("") + 
+                theme(plot.title = element_text(size=8, face="bold.italic"))
+hist.p <- ggplot(measurements %>% filter(Species == "Drosophila pseudoobscura"), 
+                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila pseudoobscura") + xlab("") + ylab("") + 
+                theme(plot.title = element_text(size=8, face="bold.italic"))
+hist.s <- ggplot(measurements %>% filter(Species == "Drosophila subobscura"), 
+                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila subobscura") + xlab("") + ylab("") + 
+                theme(plot.title = element_text(size=8, face="bold.italic"))
+hist.v <- ggplot(measurements %>% filter(Species == "Drosophila virilis"), 
+                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila virilis") + xlab("") + ylab("") + 
+                theme(plot.title = element_text(size=8, face="bold.italic"))
+hist.z <- ggplot(measurements %>% filter(Species == "Drosophila suzukii"), 
+                 aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila suzukii") + xlab("") + ylab("") + 
+                 theme(plot.title = element_text(size=8, face="bold.italic"))
 
 
-
-
-
-
-
-
-
+grid.arrange(hist.m, hist.p, hist.s, hist.v, hist.z, ncol=2, layout_matrix = cbind(c(1,2,3), c(4,5,NA)), 
+             bottom = "Limb Volume", left = "Frequency")
