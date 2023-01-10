@@ -27,19 +27,19 @@ b2 <- ggplot(measurements, aes(x=Species, y=Limb.Volume)) + geom_boxplot() + the
 #Create a multi-panel plot showing frequency histograms for each species. 
 require(gridExtra)
 hist.m <- ggplot(measurements %>% filter(Species == "Drosophila melanogaster"), 
-                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila melanogaster") + xlab("") + ylab("") + 
+                aes(x=Limb.Volume)) + xlim(0,300) + ylim(0,13) + geom_histogram(bins = 10) + theme_pub() + ggtitle("Drosophila melanogaster") + xlab("") + ylab("") + 
                 theme(plot.title = element_text(size=8, face="bold.italic"))
 hist.p <- ggplot(measurements %>% filter(Species == "Drosophila pseudoobscura"), 
-                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila pseudoobscura") + xlab("") + ylab("") + 
+                aes(x=Limb.Volume)) + xlim(0,300) + ylim(0,13) + geom_histogram(bins = 10) + theme_pub() + ggtitle("Drosophila pseudoobscura") + xlab("") + ylab("") + 
                 theme(plot.title = element_text(size=8, face="bold.italic"))
 hist.s <- ggplot(measurements %>% filter(Species == "Drosophila subobscura"), 
-                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila subobscura") + xlab("") + ylab("") + 
+                aes(x=Limb.Volume)) + xlim(0,300) + ylim(0,13) + geom_histogram(bins = 10) + theme_pub() + ggtitle("Drosophila subobscura") + xlab("") + ylab("") + 
                 theme(plot.title = element_text(size=8, face="bold.italic"))
 hist.v <- ggplot(measurements %>% filter(Species == "Drosophila virilis"), 
-                aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila virilis") + xlab("") + ylab("") + 
+                aes(x=Limb.Volume)) + xlim(0,300) + ylim(0,13) + geom_histogram(bins = 10) + theme_pub() + ggtitle("Drosophila virilis") + xlab("") + ylab("") + 
                 theme(plot.title = element_text(size=8, face="bold.italic"))
 hist.z <- ggplot(measurements %>% filter(Species == "Drosophila suzukii"), 
-                 aes(x=Limb.Volume)) + geom_histogram() + theme_pub() + ggtitle("Drosophila suzukii") + xlab("") + ylab("") + 
+                 aes(x=Limb.Volume)) + xlim(0,300) + ylim(0,13) + geom_histogram(bins = 10) + theme_pub() + ggtitle("Drosophila suzukii") + xlab("") + ylab("") + 
                  theme(plot.title = element_text(size=8, face="bold.italic"))
 
 
