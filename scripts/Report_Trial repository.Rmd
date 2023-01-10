@@ -18,7 +18,7 @@ v3 - rnorm m=10, sd=2
 v4 - Sample with replace=T from a list of 3 observers
 
 ```{r}
-source(file = "scripts/1DataGenerato.R")
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/1DataGenerato.R")
 ```
 
 *Step 2 - Volume estimation*
@@ -32,7 +32,7 @@ vol of cylinder (limb) = area of surface circle*length
 'measurements' overwritten to include volume column
 
 ```{r}
-source(file = "scripts/2VolumeEstimato.R")
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/2VolumeEstimato.R")
 ```
 
 *Step 3 - Data summaries, visualization*
@@ -43,7 +43,6 @@ Summarize means and std devs for diff species, counts for each observer
 Plots - boxplot by species, histograms(freq=T) for each species
 
 ```{r}
-source(file = "scripts/theme_pub.R")
-source(file = "scripts/3Summary&Visualization.R")
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/theme_pub.R")
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/3Summary&Visualization.R")
 ```
-
