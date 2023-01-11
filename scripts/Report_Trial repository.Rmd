@@ -1,33 +1,41 @@
 ---
 title: "Report - Trial repository"
 author: "HT"
-date: "2023-01-10"
+date: "`r Sys.Date()`"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 *Step 1 - Data generation*
+
 Script content:
 Generating data frame of 4 variables of length 100 - species, limb width, limb length and observer.
-v1 - Sample with replace=T from a list of 5 species
-v2 - rnorm m=3, sd=0.8
-v3 - rnorm m=10, sd=2
-v4 - Sample with replace=T from a list of 3 observers
+
+v1 - Sample with replace=T from a list of 5 species;
+v2 - rnorm m=3, sd=0.8;
+v3 - rnorm m=10, sd=2;
+v4 - Sample with replace=T from a list of 3 observers;
 
 ```{r}
 source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/1DataGenerato.R")
 ```
 
 *Step 2 - Volume estimation*
+
 Script content:
-#check for indexing errors in read.csv - if loop to delete extra row of indexing
+
 Formula used - 
+
 vol of cylinder (limb) = area of surface circle*length
-                       = pi*r^2*l
-                       = pi*(w/2)^2*l
+
+vol                    = pi*r^2*l
+
+vol                    = pi*(w/2)^2*l
+
+#check for indexing errors in read.csv - if loop to delete extra col of indexing
 
 'measurements' overwritten to include volume column
 
@@ -35,14 +43,28 @@ vol of cylinder (limb) = area of surface circle*length
 source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/2VolumeEstimato.R")
 ```
 
-*Step 3 - Data summaries, visualization*
-Script 1 content: theme from <http://bit.ly/theme_pub> for ggplot to use
-Script 2 content:
-Rearrange data by species, observer and volume
+*Step 3 - Data summaries*
+
+Rearrange data by species, observer and volume;
 Summarize means and std devs for diff species, counts for each observer
-Plots - boxplot by species, histograms(freq=T) for each species
+
+```{r}
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/3Summary.R")
+```
+
+*Step 4 - Visualization*
+
+Script 0 content: theme from <http://bit.ly/theme_pub> for ggplot to use
+
+Script 1 content: boxplot by species
+
+Script 2 content: histograms(freq=T) for each species
 
 ```{r}
 source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/theme_pub.R")
-source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/3Summary&Visualization.R")
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/4Visualization_1.R")
+```
+
+```{r}
+source(file = "/Users/ht/0/Stats/2 Colautti_812/trial_repo/scripts/4Visualization_2.R")
 ```
